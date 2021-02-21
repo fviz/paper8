@@ -1,0 +1,248 @@
+@font-face {
+    font-family: "Aileron";
+    src: url("/dist/aileron/Aileron-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Aileron";
+    src: url("/dist/aileron/Aileron-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Aileron", sans-serif;
+    letter-spacing: 0.07rem;
+    //background: url("https://miro.medium.com/max/2880/1*-egs-meZ08WEmAhlwa481Q.png");
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 314px 1fr;
+    grid-template-areas: "menu page";
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+li, .menuSectionTitle {
+    margin-bottom: 0.5rem;
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+a:hover {
+    color: red;
+}
+
+ul:nth-child(1) {
+    padding-left: 0;
+}
+
+.homelink {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+    position: fixed;
+    top: 22px;
+    left: 22px;
+    letter-spacing: 2.35px;
+}
+
+.menu > ul {
+    padding-left: 1rem;
+}
+
+.menu {
+    color: #888;
+    width: 200px;
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    padding-left: 2rem;
+}
+
+.menuContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    max-height: 100%;
+    overflow-x: hidden;
+    width: 0;
+    transition: all 500ms ease-in-out;
+    z-index: 200;
+    background-color: white;
+    //background-color: #fafafa;
+}
+
+.menuContainer:hover {
+    width: 250px;
+}
+
+.menuContainer:hover > .menu {
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .menu {
+        overflow: scroll;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 0;
+    }
+
+    .menuContainer {
+        width: 100%;
+        height: 36px;
+    }
+
+    .menuContainer:hover {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .pageContentContainer {
+        grid-area: content;
+        padding: 0 !important;
+    }
+
+    #app {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr;
+        grid-template-areas: "menu" "page";
+    }
+
+    .homelink {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+        position: fixed;
+        top: 22px;
+        left: 22px;
+        letter-spacing: 2.35px;
+    }
+}
+
+.pageContentContainer {
+    padding: 0.25rem;
+    overflow: scroll;
+    grid-area: page;
+}
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 0.25rem;
+}
+
+@media (max-width: 500px) {
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projectCell {
+    min-height: 400px;
+    background-color: #ffffff;
+    transition: all 1000ms cubic-bezier(0.8, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.categoryTag {
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.projectCell:hover  {
+    background-color: #fafafa;
+    padding: 1rem;
+    transform: scale(0.98);
+}
+
+.projectCell:active {
+    transition: all 50ms ease-in-out;
+    transform: scale(0.97);
+}
+
+.projectCell:hover > .categoryTag {
+    opacity: 1;
+}
+
+.projectCell:hover > .projectTitle {
+    font-size: 3.5rem;
+}
+.projectTitle {
+    font-size: 4rem;
+    text-align: left;
+    max-width: 75%;
+    padding: 0 0 0 1rem;
+    transition: all 1000ms cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.musicPlayer {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: fixed;
+    bottom: 22px;
+    left: 18px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    user-select: none;
+    z-index: 300;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 40px;
+    overflow: hidden;
+}
+
+.playerActionText {
+    opacity: 1;
+    min-width: 100px;
+}
+
+.musicPlayer:hover {
+    min-width: 200px;
+    height: 40px;
+}
+
+.musicPlayer:hover > .playerActionText {
+    opacity: 1;
+}
+
+.musicPlayer:active {
+    background-color: orangered;
+    color: white;
+}
+
+.playButton {
+    height: 32px;
+    min-width: 32px;
+    margin-right: 1rem;
+}
