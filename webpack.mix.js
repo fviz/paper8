@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/dist/js')
+    .js('resources/js/dashboard.js', 'public/dist/js')
     .vue()
     .sass('resources/css/app.scss', 'public/dist/css')
     .copyDirectory('resources/fonts/aileron', 'public/dist/aileron');

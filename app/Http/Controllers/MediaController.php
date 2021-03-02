@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class MediaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,21 +41,21 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Media $media)
     {
-        return $category;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Media $media)
     {
         //
     }
@@ -64,22 +64,21 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Media $media)
     {
-        $category->update($request->category);
-        return response($category, 200);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Media $media)
     {
         //
     }
